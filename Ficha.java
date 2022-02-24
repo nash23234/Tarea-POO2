@@ -1,18 +1,47 @@
-public class Ficha { //clase ficha
+public class Ficha { 
 
-    public String color; //color de la ficha
-    public int posicion; //posicion de la ficha
+    public String color; 
+    public int posicion;
+    Dado dado = new Dado(6); 
 
-    Dado dado = new Dado(6); //crear un dado de 6 caras
-
-    public Ficha (String color, int posicion) { //constructor
-        this.color = color; //asignar color
-        this.posicion = posicion;  //asignar posicion
+    /**
+     * 
+     * @param color
+     * @param posicion
+     */
+    public Ficha(String color, int posicion) { 
+        this.color = color; 
+        this.posicion = posicion; 
     }
 
-    public void avanzar(int caras) { //avanzar la ficha
-        int resultado = dado.lanzar(); //lanzar el dado
-        posicion += resultado; //avanzar la ficha
-        System.out.println("La ficha ha avanzado " + resultado + " casillas"); //mostrar que ha avanzado
+    /** 
+     * 
+     * @method avanzar
+     */
+    public void avanzar() {
+        int resultado = dado.lanzar(); 
+        if (posicion + resultado <= Tablero.cantidadCasillas - 1) { 
+            posicion += resultado;
+            if (posicion == Tablero.cantidadCasillas - 1) {
+                posicion += 1;
+            }
+        }
+        System.out.println("La ficha " + color + " obtuvo " + resultado + " en el dado");
+    }
+
+    public int getPosicion() {
+        return posicion;
+    }
+
+    public void setPosicion(int posicion) {
+        this.posicion = posicion;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }

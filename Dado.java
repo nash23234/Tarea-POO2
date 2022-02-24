@@ -1,20 +1,28 @@
 import java.util.Random;
 
-public class Dado { //clase dado
+public class Dado { 
  
-    public int caras = 0; //cantidad de caras
-    
-    //inicializar random
-    Random random = new Random(); //crear un objeto random
+    public int caras = 0; 
+
+    Random random = new Random(); 
   
 
-    public Dado(int caras) { //constructor
-        this.caras = caras; //asignar caras
+    /**
+     * 
+     * @param caras
+     */
+    public Dado(int caras) {
+        this.caras = caras;
     }
 
-    public int lanzar() { //lanzar el dado
-        int resultado = random.nextInt(caras) + 1; //generar un numero aleatorio entre 1 y caras (caras es el numero de caras del dado)
-        return resultado; //devolver el resultado
+    /**
+     * 
+     * @method lanzar
+     */
+    public int lanzar() {
+        return random.nextInt(1,caras) ;
+
     }
+       
  
 }
